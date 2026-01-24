@@ -1,0 +1,11 @@
+﻿# Ignore frontend folder
+IIUC-Hackathon-Frontend/
+
+# Ignore IDE files
+.idea/
+.vscode/
+*.iml
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
