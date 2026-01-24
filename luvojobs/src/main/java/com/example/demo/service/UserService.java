@@ -59,6 +59,7 @@ public class UserService {
             "User registered successfully",
             username,
             user.getEmail(),
+            user.getRole(), // Role can be null initially
             accessToken,
             refreshToken
         );
@@ -87,6 +88,7 @@ public class UserService {
             "Login successful",
             user.getUsername(),
             user.getEmail(),
+            user.getRole(), // Role can be null initially
             accessToken,
             refreshToken
         );

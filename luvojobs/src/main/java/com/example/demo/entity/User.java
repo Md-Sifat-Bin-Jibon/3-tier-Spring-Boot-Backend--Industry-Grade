@@ -35,6 +35,10 @@ public class User {
     @Column(nullable = false, unique = true, length = 16)
     private String username;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    private UserRole role;
+
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -99,5 +103,13 @@ public class User {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 }

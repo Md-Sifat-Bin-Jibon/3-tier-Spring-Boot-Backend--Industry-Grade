@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import com.example.demo.entity.UserRole;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @Schema(description = "Authentication response DTO")
@@ -16,6 +17,9 @@ public class AuthResponse {
 
     @Schema(description = "User email", example = "user@example.com")
     private String email;
+
+    @Schema(description = "User role", example = "CANDIDATE")
+    private UserRole role;
 
     @Schema(description = "JWT access token", example = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...")
     private String accessToken;
@@ -36,6 +40,16 @@ public class AuthResponse {
         this.message = message;
         this.username = username;
         this.email = email;
+        this.accessToken = accessToken;
+        this.refreshToken = refreshToken;
+    }
+
+    public AuthResponse(boolean success, String message, String username, String email, UserRole role, String accessToken, String refreshToken) {
+        this.success = success;
+        this.message = message;
+        this.username = username;
+        this.email = email;
+        this.role = role;
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;
     }
@@ -87,5 +101,13 @@ public class AuthResponse {
 
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 }
